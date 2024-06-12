@@ -1,4 +1,4 @@
-# Resource Management Handler Module
+# Logger Module
 
 This module provides a logging and tracking framework for handling resource management tasks within applications. It uses custom utilities and environmental configurations to manage log levels and track events related to resource requests.
 
