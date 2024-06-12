@@ -1,9 +1,9 @@
-import LoggerService from "./index";
-import { TrackingUtil } from "./TrackingUtil";
+const { LoggerService } = require("./index");
+const { TrackingUtil } = require("./util/TrackingUtil");
 
-const loggerName = "[admin-core-gql]:tenantManagementLambdaResolver";
-const methodName = "getMyTrainingOverview";
-const logLevel = process.env.LOGLEVEL ? process.env.LOGLEVEL : "DEBUG";
+const loggerName = "[core]:resourceManagementHandler";
+const methodName = "processResourceRequest";
+const logLevel = process.env.LOGLEVEL || "DEBUG";
 
 const loggerService = new LoggerService({
   name: loggerName,
@@ -11,21 +11,22 @@ const loggerService = new LoggerService({
 });
 
 const event = {
-  fieldName: "createTenant",
+  fieldName: "registerResource",
   arguments: {
     input: {
-      tenantid: "31182165-9ae7-42c7-98b5-099da906b73b", 
+      resourceId: "20034276-8be2-45a5-99b1-12345example", // Generic resource ID
     },
   },
   identity: {
-    sub: "30c0153c-da08-4c7d-9e6f-fed7beac684a", 
-    claims: { origin_jti: "da08-4c7d-9e6f-fed7beac684a" },
+    sub: "28b007ac-aa2d-4b2a-9c64-223344example", // Generic user ID
+    claims: { origin_jti: "aa2d-4b2a-9c64-223344example" },
   },
 };
 
 const tracker = TrackingUtil.getTracker({ customHeaders: event });
+
 loggerService.setTracker(tracker);
-loggerService.info(methodName, "Send Overdue mail", {
+loggerService.info(methodName, "Process overdue resource request", {
   arguments: event.arguments,
 });
 
