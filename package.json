@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "A logging and tracking module for Node.js AWS Lambda functions",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },

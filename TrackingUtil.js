@@ -1,4 +1,4 @@
-class TrackingUtil {
+export default class TrackingUtil {
   /**
    * Extracts tracking information from the provided context.
    * @param {object} context The context object containing event, customHeaders, and message.
@@ -34,5 +34,3 @@ class TrackingUtil {
     return {};
   }
 }
-
-module.exports = { TrackingUtil };

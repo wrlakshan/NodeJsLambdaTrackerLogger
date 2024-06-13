@@ -1,5 +1,5 @@
-const { LoggerService } = require("./index");
-const { TrackingUtil } = require("./util/TrackingUtil");
+import LoggerService from "./index.js";
+import TrackingUtil from "./TrackingUtil.js";
 
 const loggerName = "[core]:resourceManagementHandler";
 const methodName = "processResourceRequest";
